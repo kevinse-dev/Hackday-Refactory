@@ -12,8 +12,8 @@ module.exports = {
     });
     if (!user) {
       // 404 Not Found
-      res.json({
-        status: 404,
+      res.status(404).json({
+        status: 401,
         message: "user not found!",
       });
     }
@@ -22,8 +22,8 @@ module.exports = {
       user.password
     );
     if (!validPassword) {
-      res.json({
-        status: 400,
+      res.status(401).json({
+        status: 401,
         message: "Wrong password!",
       });
     } else {
@@ -33,8 +33,8 @@ module.exports = {
         // 200 success
         .json({
           status: 200,
-          message: "anda berhasil login",
           accessToken: token,
+          user: user,
         });
     }
   },
@@ -66,7 +66,7 @@ module.exports = {
         password: hashPassword,
       }).then((user) => {
         // 201 Created!
-        res.json({
+        res.status(201).json({
           status: 201,
           message: "success data created!",
           data: user,
@@ -203,7 +203,7 @@ module.exports = {
     });
     // validation for update
     if (found) {
-      res.json({
+      res.status(400).json({
         status: 400,
         message: "already to exist",
       });

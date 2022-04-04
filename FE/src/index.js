@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Login from './Components/Login';
 import Register from './Components/Register';
+import Dashboard from './Components/Dashboard';
+import UpdateContact from './Components/UpdateContact';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,6 +16,8 @@ ReactDOM.render(
       <Route path='/' element={<App/>}/>
       <Route path='/login' element={<Login/>} />
       <Route path='/register' element={<Register/>} />
+      <Route path='/dashboard' element={<Dashboard/>} />
+      <Route path='/dashboard/update/:id' element={<UpdateContact/>} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,

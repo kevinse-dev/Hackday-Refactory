@@ -18,30 +18,32 @@ router.get("/", verifyToken, (req, res) => {
 });
 
 // show data user
-router.get("/user", verifyToken, async (req, res) => {
+router.get("/user", async (req, res) => {
   const user = await User.findAll({ include: Contact });
   res.send(user);
 });
 
 // login
-router.post("/login", login);
+router.post("/api/v1/login", login);
 
 // register
-router.post("/register", register);
+router.post("/api/v1/register", register);
 
 // delete account
-router.post("/delete/:id", deleteAccount);
+router.post("/delete/:id",verifyToken ,deleteAccount);
 
 // profile
-router.get("/user/:id", profile);
+router.get("/api/v1/user/:id",verifyToken ,profile);
+
+
 
 // add contact
-router.post("/profile/:id/addContact", addContact);
+router.post("/profile/:id/addContact",verifyToken ,addContact);
 
 // delete contact
-router.post("/profile/:id/deleteContact/:name", deleteContact);
+router.post("/api/v1/profile/:id/deleteContact/:name",verifyToken ,deleteContact);
 
 // update Contact
-router.post("/profile/:id/updateContact/:id_contact", updateContact);
+router.post("/api/v1/profile/:id/updateContact/:id_contact",verifyToken ,updateContact);
 
 module.exports = router;
