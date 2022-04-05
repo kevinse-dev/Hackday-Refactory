@@ -12,7 +12,7 @@ module.exports = {
     });
     if (!user) {
       // 404 Not Found
-      res.status(404).json({
+      res.status(401).json({
         status: 401,
         message: "user not found!",
       });
@@ -133,6 +133,13 @@ module.exports = {
       },
     });
 
+    // const userAccount = async() => {
+    //   await User.findOne({
+    //     where:{id: req.params.id}
+    //   })
+    // }
+    // console.log('object', userAccount);
+    console.log(req.params);
     if (numberFound) {
       res.json({
         status: 400,

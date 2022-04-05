@@ -23,7 +23,7 @@ export default function Register() {
           if (res.status !== 201) {
             setMessageError(res.data.message);
           } else {
-            // navigate("/login");
+            navigate("/login");
           }
         });
     } catch (error) {

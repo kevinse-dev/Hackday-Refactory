@@ -38,7 +38,7 @@ router.get("/api/v1/user/:id",verifyToken ,profile);
 
 
 // add contact
-router.post("/profile/:id/addContact",verifyToken ,addContact);
+router.post("/api/v1/profile/:id/addContact",verifyToken ,addContact);
 
 // delete contact
 router.post("/api/v1/profile/:id/deleteContact/:name",verifyToken ,deleteContact);

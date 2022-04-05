@@ -19,6 +19,7 @@ export default function Dashboard() {
     })
       .then(res => {
         setAllContacts(res.data.message.Contacts);
+        console.log('res',res);
         setUserAccount(data);
       })
       .catch(err => {
@@ -38,6 +39,7 @@ export default function Dashboard() {
 
 
   useEffect(() => {
+    // console.log('allContacts',userAccount);
     if (accessToken && user) {
       const data = JSON.parse(user);
       // console.log(user);
@@ -46,7 +48,6 @@ export default function Dashboard() {
       navigate("/login");
     }
   }, [accessToken, user]);
-
 
 
 
@@ -90,10 +91,10 @@ export default function Dashboard() {
               <thead className='text-xs text-gray-700 uppercase bg-gray-50  00'>
                 <tr>
                   <th scope='col' className='px-6 py-3'>
-                    NO
+                    Contact
                   </th>
                   <th scope='col' className='px-6 py-3'>
-                    Contact
+                    NO
                   </th>
                   <th scope='col' className='px-6 py-3'>
                     No Telephone
@@ -119,11 +120,11 @@ export default function Dashboard() {
                 {allContacts.length > 0 ? (
                   allContacts.map((user, index) => {
                     return (
-                      <tr className='bg-gray-200 border-b' key={index}>
+                      <tr className='bg-gray-200 border-b'>
                         <th scope='row' className='px-6 py-4 font-medium text-gray-900 whitespace-nowrap'>
                           {user.name}
                         </th>
-                        <td className='px-6 py-4'>{index + 1}</td>
+                        <td key={index} className='px-6 py-4'>{index + 1}</td>
                         <td className='px-6 py-4'>{user.name}</td>
                         <td className='px-6 py-4'>{user.telephone}</td>
                         <td className='px-6 py-4'>{user.address}</td>
@@ -150,7 +151,7 @@ export default function Dashboard() {
               </tbody>
             </table>
           </div>
-            <button>Add Contact</button>
+            <a href="" >Add Contact</a>
         </div>
       </div>
     </>

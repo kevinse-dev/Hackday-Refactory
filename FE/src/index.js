@@ -8,6 +8,7 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Dashboard from './Components/Dashboard';
 import UpdateContact from './Components/UpdateContact';
+import AddContact from './Components/AddContact';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path='/register' element={<Register/>} />
       <Route path='/dashboard' element={<Dashboard/>} />
       <Route path='/dashboard/update/:id' element={<UpdateContact/>} />
+      <Route path='/dashboard/add/:id' element={<AddContact/>} />
     </Routes>
     </BrowserRouter>
   </React.StrictMode>,
